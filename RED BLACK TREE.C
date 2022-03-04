@@ -21,7 +21,7 @@ void leftRotate(struct rbtNode *x)
  x->parent->left = y;
  else
  x->parent->right = y;
-y->left = x;
+ y->left = x;
  x->parent = y;
 }
 void rightRotate(struct rbtNode *y)
@@ -39,7 +39,7 @@ void rightRotate(struct rbtNode *y)
  else
  y->parent->right = x;
  x->right = y;
-y->parent = x;
+ y->parent = x;
 }
 void color(struct rbtNode *z)
 {
@@ -57,6 +57,7 @@ void color(struct rbtNode *z)
  z->parent->parent->color = 'R';
  if(z->parent->parent!=NULL)
  z = z->parent->parent;
+
  }
  else
  {
@@ -67,8 +68,8 @@ void color(struct rbtNode *z)
  }
  z->parent->color='B';
  z->parent->parent->color='R';
-rightRotate(z->parent->parent) ; 
- }
+ rightRotate(z->parent->parent) ; }
+
  }
  else
  {
@@ -93,6 +94,7 @@ rightRotate(z->parent->parent) ;
  z->parent->parent->color='R';
  leftRotate(z->parent->parent);
  }
+
  }
  }
  root->color='B';
@@ -106,6 +108,7 @@ void insert(int val)
  z->right=NULL;
  z->color='R';
  x=root;
+
  if(root==NULL)
  {
  root=z;
@@ -127,8 +130,9 @@ void insert(int val)
  else if(z->data<y->data)
  y->left=z;
  else
-y->right=z;
- color(z); 
+ y->right=z;
+ color(z);
+
 }
 void inorder(struct rbtNode *root)
 {
@@ -144,14 +148,14 @@ void main()
 {
  int ch,val;
  clrscr();
- printf("**********************RED BLACK TREE INSERTION PROGRAM*********************");
+
  while(1)
  {
  printf("\n1.Insert\n2.Display\n3.Exit\nEnter choice : ");
  scanf("%d",&ch);
  switch(ch)
  {
-case 1 :
+ case 1 :
  printf("Enter element : ");
  scanf("%d",&val);
  insert(val);
